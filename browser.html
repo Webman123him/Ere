@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gomega Browser — V15.1.1</title>
+  <style>
+    :root{
+      --bg1:#0f1724; --bg2:#0b1220; --accent:#ff4d6d; --muted:#9aa4b2;
+      --card:#0f1b2d; --glass: rgba(255,255,255,0.03); --radius:14px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;font-family:Inter, "Segoe UI", system-ui, Roboto, Arial;
+         background: radial-gradient(1200px 600px at 10% 10%, rgba(255,77,109,0.06), transparent),
+                     linear-gradient(135deg,var(--bg1),var(--bg2));
+         color:#e8eef6;display:flex;align-items:center;justify-content:center;padding:48px;}
+    .shell{width:980px;max-width:96%;border-radius:20px;background:
+           linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+           box-shadow: 0 10px 40px rgba(2,6,23,0.6);padding:28px;backdrop-filter: blur(6px);
+           animation: fadeIn 1s ease-out;}
+    header{display:flex;align-items:center;gap:18px;justify-content:space-between}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ff8aa0);
+          display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;color:#fff;
+          animation: pulseGlow 2s infinite alternate;}
+    h1{margin:0;font-size:1.5rem; animation: slideInLeft 0.8s ease-out;}
+    p.lead{margin:0;color:var(--muted); animation: slideInLeft 0.8s ease-out 0.2s both;}
+    .main{display:grid;grid-template-columns: 1fr 340px;gap:22px;margin-top:22px}
+    .note{background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:20px;border-radius:var(--radius);
+          box-shadow: 0 6px 18px rgba(2,6,23,0.45);color: #e6eef9;
+          animation: slideUp 0.8s ease-out;}
+    .note h2{margin:0 0 12px 0;color:var(--accent); animation: fadeIn 1s ease-out;}
+    .download-card{display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:12px;background:var(--glass);
+                   border: 1px solid rgba(255,255,255,0.03); animation: slideUp 1s ease-out;}
+    .download-btn{width:100%;padding:14px;border-radius:12px;border:0;font-weight:700;font-size:1.05rem;cursor:pointer;
+                  background:linear-gradient(90deg,var(--accent),#ff7a92);color:white;
+                  transition: transform 0.3s ease, box-shadow 0.3s ease;}
+    .download-btn:hover{transform: scale(1.02); box-shadow: 0 0 15px rgba(255,77,109,0.3);}
+    .download-meta{font-size:0.9rem;color:var(--muted)}
+    .small{font-size:0.85rem;color:var(--muted)}
+    footer{margin-top:18px;color:var(--muted);font-size:0.85rem;text-align:center;
+           animation: fadeIn 1.2s ease-out;}
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes slideUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes slideInLeft {
+      from {opacity: 0; transform: translateX(-20px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+    @keyframes pulseGlow {
+      from {box-shadow: 0 0 5px rgba(255,77,109,0.2);}
+      to {box-shadow: 0 0 15px rgba(255,77,109,0.5);}
+    }
+    @media (max-width:880px){ .main{grid-template-columns: 1fr} }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="brand">
+        <div class="logo">GΩ</div>
+        <div>
+          <h1>Gomega Browser — V15.1.1</h1>
+          <p class="lead">Faster. Cleaner. Unblocked browsing for when you need it.</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="main">
+      <div>
+        <div class="note">
+          <h2>What's new in V15.1.1</h2>
+          <p>UI polish, improved stability, and changes to the activation flow. We repaired rendering bugs and tightened up the download experience so you get a smoother install.</p>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="note">
+          <h2>A Message from the Team</h2>
+          <p>We appreciate the community and are always working to keep Gomega usable for everyone. Please keep feedback constructive — we read it all.</p>
+        </div>
+      </div>
+
+      <aside>
+        <div class="download-card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:800;font-size:1.05rem">Download Gomega Browser</div>
+              <div class="download-meta">Build: V15.1.1 • Size: 42 MB • Platform: Windows</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:10px;margin-top:8px">
+            <button id="download-now" class="download-btn">⬇️ Download Now</button>
+          </div>
+
+          <div class="small">By downloading you agree to our terms. Downloads are logged for abuse prevention.</div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>© 2025 Gomega Team — All rights reserved.</footer>
+  </div>
+
+  <script>
+    const DOWNLOAD_URL = "https://gomega.watch/downloads/GomegaBrowser.hta";
+    const downloadBtn = document.getElementById('download-now');
+
+    function handleDownloadClick(e){
+      window.location.href = DOWNLOAD_URL;
+    }
+
+    downloadBtn.addEventListener('click', handleDownloadClick);
+  </script>
+</body>
+</html>
