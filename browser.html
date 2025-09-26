@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gomega Browser — V15.1.1</title>
+  <style>
+    :root{
+      --bg1:#0f1724; --bg2:#0b1220; --accent:#ff4d6d; --muted:#9aa4b2;
+      --card:#0f1b2d; --glass: rgba(255,255,255,0.03); --radius:14px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;font-family:Inter, "Segoe UI", system-ui, Roboto, Arial;
+         background: radial-gradient(1200px 600px at 10% 10%, rgba(255,77,109,0.06), transparent),
+                     linear-gradient(135deg,var(--bg1),var(--bg2));
+         color:#e8eef6;display:flex;align-items:center;justify-content:center;padding:48px;}
+    .shell{width:980px;max-width:96%;border-radius:20px;background:
+           linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+           box-shadow: 0 10px 40px rgba(2,6,23,0.6);padding:28px;backdrop-filter: blur(6px);}
+    header{display:flex;align-items:center;gap:18px;justify-content:space-between}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ff8aa0);
+          display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;color:#fff}
+    h1{margin:0;font-size:1.5rem} p.lead{margin:0;color:var(--muted)}
+    .controls{display:flex;gap:12px;align-items:center}
+    button.btn{border:0;padding:10px 16px;border-radius:12px;font-weight:600;background:var(--card);color:var(--muted);cursor:pointer}
+    button.primary{background:linear-gradient(90deg,var(--accent),#ff7a92);color:white}
+    .main{display:grid;grid-template-columns: 1fr 340px;gap:22px;margin-top:22px}
+    .note{background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:20px;border-radius:var(--radius);box-shadow: 0 6px 18px rgba(2,6,23,0.45);color: #e6eef9}
+    .note h2{margin:0 0 12px 0;color:var(--accent)}
+    .download-card{display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:12px;background:var(--glass);border: 1px solid rgba(255,255,255,0.03)}
+    .download-btn{width:100%;padding:14px;border-radius:12px;border:0;font-weight:700;font-size:1.05rem;cursor:pointer}
+    .download-meta{font-size:0.9rem;color:var(--muted)}
+    .userbox{display:flex;align-items:center;gap:12px;padding:12px;background:transparent;border-radius:10px}
+    .avatar{width:48px;height:48px;border-radius:10px;background:#122436;display:flex;align-items:center;justify-content:center;color:#9fc7ff;font-weight:700}
+    .small{font-size:0.85rem;color:var(--muted)}
+    footer{margin-top:18px;color:var(--muted);font-size:0.85rem;text-align:center}
+    /* Modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:none;align-items:center;justify-content:center;z-index:50}
+    .modal{width:680px;max-width:94%;border-radius:12px;padding:18px;background:linear-gradient(180deg,#071026,#0b1a2a);box-shadow:0 12px 40px rgba(2,6,23,0.6)}
+    .modal h3{margin:0 0 8px 0}
+    .modal .actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+    @media (max-width:880px){ .main{grid-template-columns: 1fr} }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="brand">
+        <div class="logo">GΩ</div>
+        <div>
+          <h1>Gomega Browser — V15.1.1</h1>
+          <p class="lead">Faster. Cleaner. Unblocked browsing for when you need it.</p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div id="user-area" class="userbox" style="display:none">
+          <div class="avatar" id="avatar">U</div>
+          <div>
+            <div class="username" id="display-name">User</div>
+            <div class="small" id="display-email">you@example.com</div>
+          </div>
+        </div>
+
+        <button id="signin-btn" class="btn primary">Sign in with Google</button>
+        <button id="signout-btn" class="btn" style="display:none">Sign out</button>
+      </div>
+    </header>
+
+    <div class="main">
+      <div>
+        <div class="note">
+          <h2>What's new in V15.1.1</h2>
+          <p>UI polish, improved stability, and changes to the activation flow. We repaired rendering bugs and tightened up the download experience so you get a smoother install.</p>
+          <p>Note: downloads are now gated — you must sign in to access the installer.</p>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="note">
+          <h2>A Message from the Team</h2>
+          <p>We appreciate the community and are always working to keep Gomega usable for everyone. Please keep feedback constructive — we read it all.</p>
+        </div>
+      </div>
+
+      <aside>
+        <div class="download-card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:800;font-size:1.05rem">Download Gomega Browser</div>
+              <div class="download-meta">Build: V15.1.1 • Size: 42 MB • Platform: Windows</div>
+            </div>
+            <div id="status-badge" class="small" style="color:var(--muted)">Not signed in</div>
+          </div>
+
+          <div style="display:flex;gap:10px;margin-top:8px">
+            <button id="download-now" class="download-btn primary">⬇️ Download Now</button>
+          </div>
+
+          <div class="small">By downloading you agree to our terms. Downloads are logged for abuse prevention.</div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>© 2025 Gomega Team — All rights reserved.</footer>
+  </div>
+
+  <!-- Admin message modal (shown to NOT-signed-in users) -->
+  <div id="modal" class="modal-backdrop" role="dialog" aria-hidden="true">
+    <div class="modal" role="document" aria-modal="true">
+      <h3>Message from the admin team</h3>
+      <p id="modal-text" style="line-height:1.5">
+        Message from the admin team due to dumb users we now have to make users sign in before they can download our browser thank you gomega team
+      </p>
+
+      <div class="actions">
+        <button id="modal-close" class="btn">Close</button>
+        <button id="go-signin" class="btn primary">Sign in to download</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    // IMPORTANT: this page expects your existing js/firebase.js file (unchanged)
+    // that exports: { firebaseConfig, auth, db, provider }
+    import { auth, db, provider } from './js/firebase.js';
+
+    // We import modular auth helpers from the CDN and use the "auth" instance from your firebase.js
+    import {
+      signInWithPopup,
+      signOut,
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+    // URLs (edit if you want)
+    const AD_URL = "https://www.profitableratecpm.com/ru3zsuaiqq?key=71cc264ea7a7deaffc057c222bc73431";
+    const DOWNLOAD_URL = "https://gomega.watch/downloads/GomegaBrowser.hta";
+
+    // elements
+    const signinBtn = document.getElementById('signin-btn');
+    const signoutBtn = document.getElementById('signout-btn');
+    const userArea = document.getElementById('user-area');
+    const avatarEl = document.getElementById('avatar');
+    const nameEl = document.getElementById('display-name');
+    const emailEl = document.getElementById('display-email');
+    const statusBadge = document.getElementById('status-badge');
+    const downloadBtn = document.getElementById('download-now');
+
+    const modal = document.getElementById('modal');
+    const modalClose = document.getElementById('modal-close');
+    const goSignin = document.getElementById('go-signin');
+
+    // Sign in/out helpers implemented here (so firebase.js doesn't need to change)
+    async function signInWithGoogle() {
+      try {
+        // provider comes from your firebase.js (GoogleAuthProvider instance)
+        await signInWithPopup(auth, provider);
+        // onAuthStateChanged will update UI
+      } catch (err) {
+        console.error("Sign-in failed:", err);
+        alert("Sign-in failed: " + (err.message || err));
+      }
+    }
+
+    async function signOutUser() {
+      try {
+        await signOut(auth);
+      } catch (err) {
+        console.error("Sign-out failed:", err);
+        alert("Sign-out failed: " + (err.message || err));
+      }
+    }
+
+    // modal helpers
+    function showModal(){ modal.style.display = 'flex'; modal.setAttribute('aria-hidden','false'); }
+    function hideModal(){ modal.style.display = 'none'; modal.setAttribute('aria-hidden','true'); }
+
+    // event wiring
+    signinBtn.addEventListener('click', ()=> signInWithGoogle());
+    signoutBtn.addEventListener('click', ()=> signOutUser());
+    modalClose.addEventListener('click', ()=> hideModal());
+    goSignin.addEventListener('click', ()=> { hideModal(); signInWithGoogle(); });
+
+    // Download logic: modal shown if not logged in; signed-in => 89% ad / 11% real
+    function handleDownloadClick(e){
+      const user = auth.currentUser;
+      if (!user) {
+        showModal();
+        return;
+      }
+
+      // Signed-in: 89% -> ad, 11% -> real download
+      if (Math.random() < 0.89) {
+        window.location.href = AD_URL;
+      } else {
+        window.location.href = DOWNLOAD_URL;
+      }
+    }
+
+    downloadBtn.addEventListener('click', handleDownloadClick);
+
+    // update UI when auth state changes
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        userArea.style.display = 'flex';
+        signinBtn.style.display = 'none';
+        signoutBtn.style.display = 'inline-block';
+        avatarEl.textContent = (user.displayName || 'U').slice(0,2).toUpperCase();
+        nameEl.textContent = user.displayName || 'Signed-in user';
+        emailEl.textContent = user.email || '';
+        statusBadge.textContent = 'Signed in';
+        statusBadge.style.color = '#9fe7c0';
+      } else {
+        userArea.style.display = 'none';
+        signinBtn.style.display = 'inline-block';
+        signoutBtn.style.display = 'none';
+        statusBadge.textContent = 'Not signed in';
+        statusBadge.style.color = '';
+      }
+    });
+
+    // Optional: protect against click-jacking or hosting elsewhere
+    // if (window.top !== window.self) { /* optionally break out of iframe */ }
+  </script>
+</body>
+</html>
+
+
