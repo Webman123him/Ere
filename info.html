@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Gomega Browser</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(120deg, #ff758c, #ff7eb3);
+      color: #fff;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header {
+      padding: 40px 20px;
+      animation: slideDown 1.5s ease-out;
+    }
+
+    h1 {
+      font-size: 3em;
+    }
+
+    section {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+      animation: fadeInUp 2s ease-in-out;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.2);
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transform: scale(0.95);
+      transition: transform 0.3s;
+      animation: fadeInUp 1.2s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card:nth-child(1) { animation-delay: 0.4s; }
+    .card:nth-child(2) { animation-delay: 0.8s; }
+    .card:nth-child(3) { animation-delay: 1.2s; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ℹ️ About Gomega Browser</h1>
+  </header>
+
+  <section>
+    <div class="card">
+      <h2>🌍 Who We Are</h2>
+      <p>Gomega Browser is designed to give users a smoother, faster, and more secure browsing experience with extra customization features.</p>
+    </div>
+
+    <div class="card">
+      <h2>📖 Our Mission</h2>
+      <p>We aim to provide a lightweight launcher that simplifies access, improves stability, and ensures you have control of your browsing.</p>
+    </div>
+
+    <div class="card">
+      <h2>🔮 Coming Soon: v17</h2>
+      <p>Gomega Browser v17 will bring new UI updates, enhanced compatibility, and even better performance. Stay tuned for exciting features!</p>
+    </div>
+  </section>
+</body>
+</html>
