@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing | ScriptNova/Gomega Browser</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      background: #f8faff;
+      color: #222;
+    }
+    header {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+    h2 {
+      margin-top: 40px;
+      font-size: 22px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 6px;
+    }
+    .pricing-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .card {
+      flex: 1;
+      min-width: 260px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+    }
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+    .price {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 10px 0;
+      color: #1a73e8;
+    }
+    .note {
+      font-size: 13px;
+      color: #888;
+    }
+    ul {
+      padding-left: 18px;
+    }
+    .discounts, .payments {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 20px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      background: #f1f1f1;
+      margin-top: 40px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Our Browser Services</h1>
+    <p>Choose the tier that fits your needs best</p>
+  </header>
+
+  <div class="container">
+    <h2>Plans & Pricing</h2>
+    <div class="pricing-cards">
+      <div class="card">
+        <h3>Normal Browser</h3>
+        <p>Basic access for everyday browsing. Ideal for new users or simple needs.</p>
+        <p class="price">$4</p>
+        <p class="note">Available now</p>
+      </div>
+
+      <div class="card">
+        <h3>Premium Browser</h3>
+        <p>Enhanced performance with faster connections, priority features, and better reliability.</p>
+        <p class="price">$6</p>
+        <p class="note">Not available yet</p>
+      </div>
+
+      <div class="card">
+        <h3>Black Express Browser</h3>
+        <p>Elite-level access with advanced stealth tools, unlimited sessions, and exclusive optimizations.</p>
+        <p class="price">$8</p>
+        <p class="note">Not available yet</p>
+      </div>
+
+      <div class="card">
+        <h3>Bundled (All Tiers)</h3>
+        <p>Full access to Normal, Premium, and Black Express.</p>
+        <p class="price">$13</p>
+        <p class="note">Includes everything</p>
+      </div>
+    </div>
+
+    <h2>Discounts</h2>
+    <div class="discounts">
+      <ul>
+        <li><b>New Users:</b> $4 (standard rate for first-time buyers—no code needed)</li>
+        <li><b>Admin Discount:</b> $2 (for verified admins; applies to any tier)</li>
+        <li><b>Friend Discount:</b> $2 (use a referral code from an existing friend/user)</li>
+        <li><b>Co-Owner:</b> $0 (free full access for co-owners)</li>
+        <li><b>Owner:</b> $0 (free full access for owners)</li>
+      </ul>
+      <p class="note">Discounts can stack where eligible (e.g., a friend with admin status gets $0 on a $2 base). Contact support to apply or verify.</p>
+    </div>
+
+    <h2>Payment Methods</h2>
+    <div class="payments">
+      <ul>
+        <li>Cash App: <span class="note">N/A</span></li>
+        <li>PayPal: <span class="note">N/A</span></li>
+        <li>Cash (for now): Arrange in-person or mailed cash for local people</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 ScriptNova Browser/Gomega Browser. All rights reserved.
+  </div>
+</body>
+</html>
